@@ -7,7 +7,7 @@
 	src:url('../fonts/UglyQua-Italic.ttf');
 }
 @font-face {
-	font-family:'Leander';
+	font-family:'Bellota-Regular';
 	src:url('../fonts/Leander.ttf');
 }
 html, body {
@@ -15,12 +15,17 @@ html, body {
 	min-height: 100%;
 }
 form {
+	font-family: 'Bellota-Regular', sans-serif;
 	text-align: center;
 }
 body {
-	font-family:'UglyQua-Italic', sans-serif;
+	
 	margin:0;
 	padding:0;
+}
+a{
+	text-decoration: none;
+	color: #3498db;
 }
 .wrapper {
 	background-image: url("../images/background/register_background_image.jpg");
@@ -48,11 +53,35 @@ body {
 	background-image:url("../images/background/login-header.jpg");
 	opacity: 0.80;
 	border-radius: 7px;
-	text-align: center;
+	text-salign: center;
 }
 .login_header h1 {
 	font-family:'UglyQua', sans-serif;
 	margin-top:0;
 	margin-bottom:0;
 	font-size:;
+}
+input[type="submit"] {
+	background-image:url("../images/background/login-header.jpg");
+	border: 1px solid black;
+	border-radius: 3px;
+	margin:5px 0 10px 0;
+	padding: 5px 10px 5px 10px;
+	font-size: 100%;
+	font-family: 'Bellota-BoldItalic', sans-serif;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+	border: 1px solid #e5e5e5;
+	margin-top: 2px;
+	width: 50%;
+	height: 35px;
+	margin-bottom: 2px;
+	padding-left: 5px;
+}
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
+	border-color: #3498db;
+} 
+#registration_section {
+	display:none;
 }
