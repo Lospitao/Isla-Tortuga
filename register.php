@@ -9,14 +9,14 @@ require 'includes/form_handlers/login_handler.php';
 PE html>
 <html>
 <head>
+	<title>Welcome to Tortuga Island!</title>
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<title>Welcome to Tortuga Island!</title>
-		<link rel="stylesheet" type="text/css" href="assets/css/reg-stylesheet.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="assets/js/register.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/reg-stylesheet.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="assets/js/register.js"></script>
 		
 		
 </head> 
@@ -51,7 +51,7 @@ PE html>
 			</div>
 				
 			<div id="registration_section">
-				<form action="register.php" method="post">
+				<form action="register.php" method="POST">
 				
 						
 					<input type="text" class="form-control" name="reg_fname" placeholder="First Name" 
@@ -64,11 +64,11 @@ PE html>
 					
 					<?php 
 					if(in_array("Avast ye!That name o'yours is longer that this ship Jacob's ladder,
-					or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
-					characters.<br>", $error_array))
+		or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
+		characters.<br>", $error_array))
 						echo "Avast ye!That name o'yours is longer that this ship Jacob's ladder,
-					or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
-					characters.<br>";
+		or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
+		characters.<br>";
 					?>
 					<input type="text" class="form-control" name="reg_lname" placeholder="Last Name" 
 					value="<?php 
@@ -80,11 +80,11 @@ PE html>
 					
 					<?php 
 					if(in_array("Avast ye!That last name o'yours is longer that this ship Jacob's ladder,
-					or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
-					characters.<br>", $error_array))
+		or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
+		characters.<br>", $error_array))
 						echo "Avast ye!That last name o'yours is longer that this ship Jacob's ladder,
-					or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
-					characters.<br>";
+		or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
+		characters.<br>";
 					?>
 
 					<input type="email" class="form-control" name="reg_email" placeholder="Email" 
@@ -109,11 +109,11 @@ PE html>
 					else if(in_array("Are you single-handed? That format offends God himself. 
 					Check it you freshwater sailor.<br>",$error_array))
 						echo "Are you single-handed? That format offends God himself. 
-					Check it you freshwater sailor.<br>";
+		Check it you freshwater sailor.<br>";
 					else if(in_array("Blimey son, emails don't match, 
-					for Christ sake, check'em!<br>",$error_array))
+		for Christ sake, check'em!<br>",$error_array))
 						echo "Blimey son, emails don't match, 
-					for Christ sake, check'em!<br>";
+		for Christ sake, check'em!<br>";
 					?>
 					<input type="password" class="form-control" name="reg_password" placeholder="Password" required>
 					
@@ -121,13 +121,13 @@ PE html>
 					
 					<?php 
 					if(in_array("U reckles Landlubber! What did you think we requested you to confirm password for?
-					Make them equal or sure as I am the master pirate I will maroon the sh** out of you!<br>", $error_array))
+		Make them equal or sure as I am the master pirate I will maroon the sh** out of you!<br>", $error_array))
 						echo "U reckles Landlubber! What did you think we requested you to confirm password for?
-					Make them equal or sure as I am the master pirate I will maroon the sh** out of you!<br>";
+		Make them equal or sure as I am the master pirate I will maroon the sh** out of you!<br>";
 					else if(in_array("So we have an Old Salt'n here, huh? Password must only 
-						contain latin alphabet letters or numbers. Suck it!<br>", $error_array))
+			contain latin alphabet letters or numbers. Suck it!<br>", $error_array))
 						echo "So we have an Old Salt'n here, huh? Password must only 
-						contain latin alphabet letters or numbers. Suck it!<br>";
+			contain latin alphabet letters or numbers. Suck it!<br>";
 					else if(in_array("Your damn watchword must be between 5 and 30 characters!<br>", $error_array))
 						echo "Your damn watchword must be between 5 and 30 characters!<br>";
 					?>

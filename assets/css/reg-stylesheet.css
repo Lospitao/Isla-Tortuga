@@ -17,6 +17,7 @@ html, body {
 form {
 	font-family: 'Bellota-Regular', sans-serif;
 	text-align: center;
+	justify-content: center;
 }
 body {
 	
@@ -53,7 +54,7 @@ a{
 	background-image:url("../images/background/login-header.jpg");
 	opacity: 0.80;
 	border-radius: 7px;
-	text-salign: center;
+	text-align: center;
 }
 .login_header h1 {
 	font-family:'UglyQua', sans-serif;
@@ -73,15 +74,18 @@ input[type="submit"] {
 
 input[type="text"], input[type="email"], input[type="password"] {
 	border: 1px solid #e5e5e5;
-	margin-top: 2px;
+	margin-top: 10px;
 	width: 50%;
 	height: 35px;
-	margin-bottom: 2px;
+	margin-bottom: 10px;
 	padding-left: 5px;
+	margin-left: auto;
+	margin-right: auto;
 }
 input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
 	border-color: #3498db;
 } 
 #registration_section {
 	display:none;
+	
 }
