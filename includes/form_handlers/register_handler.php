@@ -112,4 +112,3 @@ if (isset($_POST['register_button'])) {
 		$_SESSION['reg_email2']="";
 	}
 }
-?>
