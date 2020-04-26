@@ -1,12 +1,12 @@
 <?php
-require_once 'config/config.php';
+include("includes/header.php");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Lospyworld</title>
+	<title>Welcome to Tortuga Island</title>
 </head>
 <body>
-Laurita que funciona!
+Hello Lospitao!
 </body>
-</html>
+</html></html></html>
