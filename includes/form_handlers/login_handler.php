@@ -28,5 +28,5 @@ if(isset($_POST['login_button'])) {
 		array_push($error_array, "Not gonna happen,son! Get your s**t together and write both email and password correct!<br>");
 	}
 }
-?>
+
 
