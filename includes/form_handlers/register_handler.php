@@ -85,7 +85,7 @@ if (isset($_POST['register_button'])) {
 	if(empty($error_array)) {
 		$password=md5($password); /*md5 to encrypt password before sending it to database*/
 		/*generate $username*/
-		$username=strtolower($name."_".$lname);
+		$username=strtolower($fname."_".$lname);
 		$check_username_query=mysqli_query($conn, "SELECT username FROM users WHERE username='$username'");
 		$i=0;
 		/*if username exists add numeber to username*/
@@ -98,9 +98,9 @@ if (isset($_POST['register_button'])) {
 		$rand = rand(1,2); /*random number between 1 and 4*/
 		
 		if ($rand==1) 
-			$profile_pic="assets/images/profile_pics/default/shapeman.png";
+			$profile_pic="assets/images/profile_pics/default/blaman.png";
 		else if 
-			($rand==2) $profile_pic="assets/images/profile_pics/default/cartoonman.png";
+			($rand==2) $profile_pic="assets/images/profile_pics/default/blaboy.png";
 		
 
 		$query=mysqli_query($conn, "INSERT INTO users VALUES (NULL,'$fname', '$lname', '$username', '$email', '$password', '$date', '$profile_pic','0', '0', 'no', ',')");
