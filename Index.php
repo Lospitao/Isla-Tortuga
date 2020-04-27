@@ -7,6 +7,6 @@ include("includes/header.php");
 	<title>Welcome to Tortuga Island</title>
 </head>
 <body>
-Hello Lospitao!
+Hello <?php echo $user['first_name'];?>!
 </body>
 </html></html></html>
