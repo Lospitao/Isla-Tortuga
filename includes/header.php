@@ -38,23 +38,27 @@ else {
 				<?php echo $user['first_name'];?>
 			</a>
 			<a href="index.php">
-				<i class="fas fa-home"></i>
+				<i class="fas fa-home fa-lg"></i>
 			</a>
 
 			<a href="#">
-				<i class="far fa-envelope"></i>
+				<i class="far fa-envelope fa-lg"></i>
 			</a>
 
 			<a href="#">
-				<i class="fas fa-bell"></i>
+				<i class="fas fa-bell fa-lg"></i>
 			</a>
 
 			<a href="#">
-				<i class="fas fa-users"></i>
+				<i class="fas fa-users fa-lg"></i>
 			</a>
 
 			<a href="#">
-				<i class="fas fa-cog"></i>
+				<i class="fas fa-cog fa-lg"></i>
 			</a>
 		</nav>
 	</div>
+	<div class="wrapper">
+
+	
+	
