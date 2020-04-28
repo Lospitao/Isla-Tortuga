@@ -34,7 +34,7 @@ else {
 			<a href="index.php">Tortuga Island</a>
 		</div>
 		<nav>
-			<a href="#" id="user_first_name">
+			<a href="<?php echo $userLoggedIn; ?>" id="user_first_name">
 				<?php echo $user['first_name'];?>
 			</a>
 			<a href="index.php">
