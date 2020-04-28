@@ -17,6 +17,16 @@ include("includes/header.php");
 	
 		</div>
 	</div>
+	<div class="main_column column">
+		<form class="post_form" action="index.php" method="POST">
+			<textarea name="post_text" id="post_text" placeholder="Say what u rascal?"></textarea>
+			<input type="submit" name="post" id="post_button" value="Post">
+			
+		</form>
+	</div>
+
+
+
 	</div>
 </body>
 </html>

@@ -24,7 +24,7 @@ else {
 	<!--CSS-->
 	<script src="https://kit.fontawesome.com/5a4a71c487.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/header-stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
@@ -60,5 +60,4 @@ else {
 	</div>
 	<div class="wrapper">
 
-	
 	
