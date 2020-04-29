@@ -56,6 +56,9 @@ else {
 			<a href="#">
 				<i class="fas fa-cog fa-lg"></i>
 			</a>
+			<a href="includes/handlers/logout.php">
+				<i class="fas fa-sign-out-alt fa-lg"></i>
+			</a>
 		</nav>
 	</div>
 	<div class="wrapper">
