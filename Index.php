@@ -6,6 +6,7 @@ include("includes/classes/Post.php");
 if(isset($_POST['post'])) {
 	$post = new Post($conn, $userLoggedIn);
 	$post->submitPost($_POST['post_text'], 'none');
+	header("Location:index.php"); //when it submits the post it refreshes the page
 }
 ?>
 	<div class="user_details column">
