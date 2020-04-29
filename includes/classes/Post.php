@@ -10,6 +10,10 @@ class Post {
 	public function submitPost($body, $user_to) {
 		$body = strip_tags($body); //removes html tags
 		$body = mysqli_real_escape_string($this->conn, $body); // escapes single quotes as in "I'm"
+
+		$body= str_replace('\r\n', '\n', $body); // we look for a carriage return followed by a line break ('\r\n') which is what happens when we press enter in the textarea and replacing it by a newline
+		$body=nl2br($body);//function which replaces newlines with line breaks (<br>)
+
 		$check_empty = preg_replace('/\s+/','', $body); //Delete all spaces in $body to prevent empty posts in the following if
 
 		if($check_empty != "") {
