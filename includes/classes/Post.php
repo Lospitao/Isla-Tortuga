@@ -48,7 +48,6 @@ class Post {
 			$body = $row['body'];
 			$added_by = $row['added_by'];
 			$date_time = $row['date_added'];
-		}
 
 		//prepare user_to string so it can be included even if the post was  not posted to a user (inside of there feed)
 
@@ -58,9 +57,20 @@ class Post {
 		else {
 			$user_to_obj = new User($conn, $row['user_to']); //new user with the 'user_to' as the username
 			$user_to_name = $user_to_obj->getFirstAndLastName(); //we use this method from User Class
-			$user_to = "<a href='" . $row['user_to'] . "'>" . $user_to_name . "</a>"
+			$user_to = "<a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
 		}
+
+		//check if user who posted, has their account closed
+		$added_by_obj = new User($conn, $added_by);
+		if ($added_by_obj->isClosed()) {
+			continue; //go to the next iteration
+		}
+
+		$user_details_query = mysqli_query($this->conn, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
+		$user_row = mysqli_fetch_array($user_details_query);
 	}
+
+}
+	
 }
 
-?>
