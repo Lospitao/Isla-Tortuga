@@ -57,17 +57,20 @@ class Post {
 		else {
 			$user_to_obj = new User($conn, $row['user_to']); //new user with the 'user_to' as the username
 			$user_to_name = $user_to_obj->getFirstAndLastName(); //we use this method from User Class
-			$user_to = "<a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
+			$user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
 		}
 
 		//check if user who posted, has their account closed
-		$added_by_obj = new User($conn, $added_by);
+		$added_by_obj = new User($this->conn, $added_by);
 		if ($added_by_obj->isClosed()) {
 			continue; //go to the next iteration
 		}
 
 		$user_details_query = mysqli_query($this->conn, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
 		$user_row = mysqli_fetch_array($user_details_query);
+		$first_name=$user_row['first_name'];
+		$last_name=$user_row['last_name'];
+		$profile_pic=$user_row['profile_pic'];
 
 		//Timeframe
 		$date_time_now = date("Y-m-d H:i:s");
@@ -130,8 +133,23 @@ class Post {
 				$time_message = $interval->s . "seconds ago";
 			}
 		}
+		$str .="<div class='status_post'>
+					<div class='post_profile_pic'>
+						<img src='$profile_pic' width='50'>
+					</div>
+
+					<div class='posted_by' style='color:#ACACAC;'>
+						<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+					</div>
+					<div id='post_body'>
+						$body
+						<br>
+					</div>
+				
+				</div>";
 	}
 
+	echo $str;
 }
 	
 }
