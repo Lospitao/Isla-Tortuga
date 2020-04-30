@@ -31,14 +31,45 @@ if(isset($_POST['post'])) {
 			<input type="submit" name="post" id="post_button" value="Post">
 			
 		</form>
-		<?php
-		$post = new Post($conn, $userLoggedIn);
-		$post->loadPostsFriends();
-		?>
+		
+		<div class="posts_area"></div>
+		<img id="#loading" src="assets/images/icons/loading.gif">
 
 	</div>
 
+	<script>
+		var userLoggedIn = '<?php echo $userLoggedIn; ?>'
+		
+		$(document).ready(function() {
 
+			$('#loading').show();
+			// Original ajax request for loading first posts
+			var ajaxReq = $.ajax({
+				url:"includes/handlers/ajax_load_posts.php",
+				type: "POST", 
+				data: "page="+ page + "&userLoggedIn=" + userLoggedIn,
+				cache: false,
+
+				success: function(response) {
+					$('.post_area').find('.nextPage').remove(); //Removes current .nextpage
+					$('.post_area').find('.noMorePosts').remove(); // Removes current .nextpage
+					$('#loading').hide();
+					$('.posts_area').append(response);
+				}
+			});
+
+			$(window).scroll(function() {
+				var height = $('.posts_area').height(); //Div containing posts height will determine the height of posts showed
+				var scroll_top = $(this).scrollTop();
+				var page = $('.posts_area').find('.nextPage').val();
+				var noMorePosts = $('posts_area').find('.noMorePosts').val();
+
+				if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') 
+					$('#loading')
+			});
+
+		});
+	</script>
 
 	</div>
 </body>
