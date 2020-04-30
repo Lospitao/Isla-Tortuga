@@ -39,5 +39,28 @@ class Post {
 			$update_query = mysqli_query($this->conn, "UPDATE users SET num_posts='$num_posts' WHERE username ='$added_by'");
 		}
 	}
+	public function loadPostsFriends() {
+		$str = ""; // string to return
+		$data = mysqli_query($this->conn, "SELECT * from posts WHERE deleted='no' ORDER BY id DESC");
+		//we'll use a while loop so that posts keep showing so long as they are not deleted
+		while ($row=mysqli_fetch_array($data)) {
+			$id = $row['id'];
+			$body = $row['body'];
+			$added_by = $row['added_by'];
+			$date_time = $row['date_added'];
+		}
+
+		//prepare user_to string so it can be included even if the post was  not posted to a user (inside of there feed)
+
+		if($row['user_to'] == "none") {
+			$user_to = ""; //we include this in the output whether it was posted in someone else's feed
+		}
+		else {
+			$user_to_obj = new User($conn, $row['user_to']); //new user with the 'user_to' as the username
+			$user_to_name = $user_to_obj->getFirstAndLastName(); //we use this method from User Class
+			$user_to = "<a href='" . $row['user_to'] . "'>" . $user_to_name . "</a>"
+		}
+	}
 }
+
 ?>
