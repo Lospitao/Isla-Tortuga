@@ -68,6 +68,68 @@ class Post {
 
 		$user_details_query = mysqli_query($this->conn, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
 		$user_row = mysqli_fetch_array($user_details_query);
+
+		//Timeframe
+		$date_time_now = date("Y-m-d H:i:s");
+		$start_date = new Datetime($date_time);//Datetime() class comes with PHP. This is time of post
+		$end_date = new Datetime($date_time_now); // current time
+		$interval = $start_date->diff($end_date); //difference between two dates
+		if($interval->y >= 1) { //in case it was posted more than a year ago
+			if($interval == 1)
+				$time_message = $interval->y . " year ago"; //this would produce "1 year ago"
+			else 
+				$time_message = $interval->y . " years ago"; // more than one years
+		}
+		else if ($interval-> m >= 1) {
+			if($interval->d == 0) {
+				$days = " ago";
+			}
+			else if($interval->d == 1) {
+				$days = $interval->d . "day ago";
+			}
+			else  {
+				$days = $interval->d . "days ago";
+			}
+			
+			if($interval->m ==1) {
+				$time_message = $interval->m . " month" . $days;
+			}
+			else {
+				$time_message = $interval->m . " months" . $days;	
+			}
+		}
+		else if($interval->d >= 1) {
+			if($interval->d == 1) {
+				$time_message = $interval->d . "Yesterday";
+			}
+			else  {
+				$time_message = $interval->d . "days ago";
+			}
+		}
+		else if ($interval-> h >= 1) {
+			if($interval->h == 1) {
+				$time_message = $interval->h . "hour ago";
+			}
+			else {
+				$time_message = $interval->h . "hours ago";
+			}
+		}
+		else if ($interval-> i >= 1) {
+			if($interval->i == 1) {
+				$time_message = $interval->i . "minute ago";
+			}
+			else {
+				$time_message = $interval->i . "minutes ago";
+			}
+		}
+		else {
+			if($interval->s == 30) {
+				$time_message = "Just now";
+			}
+			else {
+				$time_message = $interval->s . "seconds ago";
+			}
+		}
 	}
 
 }
