@@ -103,7 +103,7 @@ class Post {
 		}
 		else if($interval->d >= 1) {
 			if($interval->d == 1) {
-				$time_message = $interval->d . "Yesterday";
+				$time_message = "Yesterday";
 			}
 			else  {
 				$time_message = $interval->d . "days ago";
@@ -126,7 +126,7 @@ class Post {
 			}
 		}
 		else {
-			if($interval->s == 30) {
+			if($interval->s <= 30) {
 				$time_message = "Just now";
 			}
 			else {

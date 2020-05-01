@@ -39,15 +39,16 @@ if(isset($_POST['post'])) {
 
 	<script>
 		var userLoggedIn = '<?php echo $userLoggedIn; ?>'
+		var page = '1'
 		
 		$(document).ready(function() {
 
-			$('#loading').show();
+			$('#loading').show(); //show pirate (loading gif) while loading
 			// Original ajax request for loading first posts
 			var ajaxReq = $.ajax({
 				url:"includes/handlers/ajax_load_posts.php",
 				type: "POST", 
-				data: "page="+ page + "&userLoggedIn=" + userLoggedIn,
+				data: "page="+ page + "userLoggedIn=" + userLoggedIn,
 				cache: false,
 
 				success: function(response) {
