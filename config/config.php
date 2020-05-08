@@ -3,7 +3,7 @@ ob_start(); //Turns on output buffering
 session_start();
 
 $timezone =date_default_timezone_set("Europe/Madrid");
-$conn=mysqli_connect("localhost", "lospy", "capoupascap", "social");
+$conn=mysqli_connect("localhost", "lauralospitao", "normajeane010626", "social");
 
 if(mysqli_connect_errno())
 {
