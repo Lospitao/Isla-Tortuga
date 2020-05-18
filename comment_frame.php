@@ -1,3 +1,17 @@
+<?php
+require_once 'config/config.php';
+include("includes/classes/User.php");
+include("includes/classes/Post.php");
+
+if (isset($_SESSION['username'])) {
+    $userLoggedIn=$_SESSION['username']; //this collects the user's name from the email and password entered
+    $user_details_query = mysqli_query($conn, "SELECT * FROM users WHERE username='$userLoggedIn'");
+    $user= mysqli_fetch_array($user_details_query); //this collects all details from the logged user
+}
+else {
+    header("Location: register.php");
+}
+?>
 <html>
 <head>
     <title></title>
@@ -12,26 +26,13 @@
         }
     </style>
 
-    <?php
-    require_once 'config/config.php';
-    include("includes/classes/User.php");
-    include("includes/classes/Post.php");
 
-    if (isset($_SESSION['username'])) {
-        $userLoggedIn=$_SESSION['username']; //this collects the user's name from the email and password entered
-        $user_details_query = mysqli_query($conn, "SELECT * FROM users WHERE username='$userLoggedIn'");
-        $user= mysqli_fetch_array($user_details_query); //this collects all details from the logged user
-    }
-    else {
-        header("Location: register.php");
-    }
-    ?>
     <script>
         function toggle() {
             var element = document.getElementById("comment_section");
 
             if(element.style.display == "block")
-                elment.style.display = "none";
+                element.style.display = "none";
             else
                 element.style.display = "block";
         }
@@ -56,7 +57,6 @@
     }
     ?>
     <form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name="postComment<?php echo $post_id; ?>" method="POST">
-
         <textarea name="post_body"></textarea>
         <input type="submit" name="postComment<?php echo $post_id; ?>" value="Post">
     </form>
@@ -146,6 +146,9 @@
 
             <?php
         }
+    }
+    else {
+        echo "<center><br><br>No comments to show bucko!</center>";
     }
     ?>
 

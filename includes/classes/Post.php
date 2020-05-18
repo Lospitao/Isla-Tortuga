@@ -106,7 +106,8 @@ class Post {
                 }
             </script>
             <?php
-
+            $comments_check = mysqli_query($this->conn, "SELECT * FROM comments WHERE post_id='$id'");
+            $comments_check_num = mysqli_num_rows($comments_check);
 			//Timeframe
 			$date_time_now = date("Y-m-d H:i:s");
 			$start_date = new Datetime($date_time);//Datetime() class comes with PHP. This is time of post
@@ -180,8 +181,13 @@ class Post {
 								<div id='post_body'>
 							$body
 							<br>
+							<br>
+							<br>
 						</div>
-					
+					<div class='newsfeedPostOptions'>
+					Comments($comments_check_num)&nbsp&nbsp&nbsp&nbsp;
+				<!--this is where the like button will be placed--!>	
+                    </div>
 					</div>
 					<div class='post_comment' id='toggleComment$id' style='display:none;'>
 					    <iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
@@ -193,7 +199,7 @@ class Post {
 				$str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
 							<input type='hidden' class='noMorePosts' value='false'>";
 			else
-				$str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: centre;'> No more posts to show! </p>";
+				$str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: center;'> No more posts to show! </p>";
 		}
 
 	echo $str;
