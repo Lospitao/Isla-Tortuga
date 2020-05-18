@@ -97,12 +97,17 @@ class Post {
 			?>
             <script>
                 function toggle<?php echo $id; ?>() {
-                    var element = document.getElementById("toggleComment<?php echo $id; ?>");
+                    var target = $(event.target); //when the link is clicked
+                    if (!target.is("a")) { //if the target is NOT an "a" link
+                        //show comments
+                        var element = document.getElementById("toggleComment<?php echo $id; ?>");
 
-                    if(element.style.display == "block")
-                        elment.style.display = "none";
-                    else
-                        element.style.display = "block";
+                        if(element.style.display == "block")
+                            elment.style.display = "none";
+                        else
+                            element.style.display = "block";
+                    }
+
                 }
             </script>
             <?php
