@@ -5,6 +5,13 @@
 </head>
 <body>
 
+    <style type="text/css">
+        * {
+            font-size: 14px;
+            font-family: Arial, Helvetica , Sans-serif;
+        }
+    </style>
+
     <?php
     require_once 'config/config.php';
     include("includes/classes/User.php");
