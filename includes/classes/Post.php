@@ -18,7 +18,7 @@ class Post {
 			//current date and time
 			$date_added = date("Y-m-d H:i:s");
 			//get username
-			$added_by = $this->user_obj->getUsername(); //We are calling this funtion which is in User class thanks to $user_obj being an instance of $User
+			$added_by = $this->user_obj->getUsername(); //We are calling this function which is in User class thanks to $user_obj being an instance of $User
 			//if user posts on his/her own profile user_to is 'none'
 			if ($user_to==$added_by) {
 				$user_to = "none";
@@ -65,7 +65,7 @@ class Post {
 				$user_to = ""; //we include this in the output whether it was posted in someone else's feed
 			}
 			else {
-				$user_to_obj = new User($conn, $row['user_to']); //new user with the 'user_to' as the username
+				$user_to_obj = new User($this->conn, $row['user_to']); //new user with the 'user_to' as the username
 				$user_to_name = $user_to_obj->getFirstAndLastName(); //we use this method from User Class
 				$user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
 			}

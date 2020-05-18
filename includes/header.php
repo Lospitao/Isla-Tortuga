@@ -1,10 +1,10 @@
 <?php
-require_once 'config/config.php';
+require 'config/config.php';
 
 if (isset($_SESSION['username'])) {
-	$userLoggedIn=$_SESSION['username']; //this collects the user's name from the email and password entered 
-	$user_details_query = mysqli_query($conn, "SELECT * FROM users WHERE username='$userLoggedIn'"); 
-	$user= mysqli_fetch_array($user_details_query); //this collects all details from the logged user
+    $userLoggedIn = $_SESSION['username'];
+    $user_details_query = mysqli_query($conn, "SELECT * FROM users WHERE username='$userLoggedIn'");
+    $user = mysqli_fetch_array($user_details_query);
 }
 else {
 	header("Location: register.php");
@@ -34,9 +34,9 @@ else {
 			<a href="index.php">Tortuga Island</a>
 		</div>
 		<nav>
-			<a href="<?php echo $userLoggedIn; ?>" id="user_first_name">
-				<?php echo $user['first_name'];?>
-			</a>
+			<a href="<?php echo $userLoggedIn; ?>" >
+                <?php echo $user['first_name'];?>
+            </a>
 			<a href="index.php">
 				<i class="fas fa-home fa-lg"></i>
 			</a>

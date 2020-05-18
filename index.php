@@ -4,11 +4,11 @@ include("includes/classes/User.php");
 include("includes/classes/Post.php");
 
 
-if(isset($_POST['post'])){
+if(isset($_POST['post'])) {
 	$post = new Post($conn, $userLoggedIn);
 	$post->submitPost($_POST['post_text'], 'none');
-}
 
+}
 
  ?>
 	<div class="user_details column">
@@ -18,13 +18,11 @@ if(isset($_POST['post'])){
 			<a href="<?php echo $userLoggedIn; ?>">
 			<?php 
 			echo $user['first_name'] . " " . $user['last_name'];
-
 			 ?>
 			</a>
 			<br>
 			<?php echo "Posts: " . $user['num_posts']. "<br>"; 
 			echo "Likes: " . $user['num_likes'];
-
 			?>
 		</div>
 

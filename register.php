@@ -91,9 +91,7 @@ require 'includes/form_handlers/login_handler.php';
 					required>
 
 					<?php
-					if(in_array("Avast ye!That last name o'yours is longer that this ship Jacob's ladder,
-		or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
-		characters.<br>", $error_array))
+					if(in_array("Avast ye!That last name o'yours is longer that this ship Jacob's ladder, or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25 characters.<br>", $error_array))
 						echo "Avast ye!That last name o'yours is longer that this ship Jacob's ladder,
 		or shorter than a lassie's lil' thingie. Try again Bucko! This time bewteen 2 and 25
 		characters.<br>";
@@ -122,10 +120,8 @@ require 'includes/form_handlers/login_handler.php';
 					Check it you freshwater sailor.<br>",$error_array))
 						echo "Are you single-handed? That format offends God himself.
 		Check it you freshwater sailor.<br>";
-					else if(in_array("Blimey son, emails don't match,
-		for Christ sake, check'em!<br>",$error_array))
-						echo "Blimey son, emails don't match,
-		for Christ sake, check'em!<br>";
+					else if(in_array("Blimey son, emails don't match, for Christ sake, check'em!<br>",$error_array))
+						echo "Blimey son, emails don't match, for Christ sake, check'em!<br>";
 					?>
 					<input type="password" class="form-control" name="reg_password" placeholder="Password" required>
 
@@ -156,5 +152,6 @@ require 'includes/form_handlers/login_handler.php';
 
 		</div>
 	</div>
+
 </body>
 </html>
