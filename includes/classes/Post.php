@@ -191,7 +191,7 @@ class Post {
 						</div>
 					<div class='newsfeedPostOptions'>
 					Comments($comments_check_num)&nbsp&nbsp&nbsp&nbsp;
-				<!--this is where the like button will be placed--!>	
+				<iframe src='like.php?post_id=$id'></iframe>	
                     </div>
 					</div>
 					<div class='post_comment' id='toggleComment$id' style='display:none;'>
