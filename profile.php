@@ -1,7 +1,6 @@
 <?php
 include("includes/header.php");
-include("includes/classes/User.php");
-include("includes/classes/Post.php");
+
 
 
 if(isset($_GET['profile_username'])) {
@@ -20,7 +19,7 @@ if(isset($_POST['add_friend'])) {
     $user->sendRequest($username);
 }
 if(isset($_POST['respond_request'])) {
-    header("Location: requests.php");
+    header("Location: request.php");
 }
 ?>
     <style type="text/css">
