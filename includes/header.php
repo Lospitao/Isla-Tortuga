@@ -10,7 +10,7 @@ else {
 	header("Location: register.php");
 }
 ?>
-<!DOCTYPE html>
+
 <html>
 <head>
 	<title>Welcome to Tortuga Island</title>
