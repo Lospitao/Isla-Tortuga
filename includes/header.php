@@ -51,7 +51,7 @@ else {
 				<i class="fas fa-bell fa-lg"></i>
 			</a>
 
-			<a href="#">
+			<a href="request.php">
 				<i class="fas fa-users fa-lg"></i>
 			</a>
 
