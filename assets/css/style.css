@@ -327,3 +327,24 @@ textarea:focus {
 	font-family: 'Bellota-Regular', sans-serif;
 	font-size: 120%;
 }
+
+#accept_button {
+	width:20%;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	margin: 5px;
+	color: #fff;
+	background-color: #C4E538;
+	font-weight: bolder;
+}
+#ignore_button {
+	width:20%;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	margin: 5px;
+	color: #fff;
+	background-color: #ED4C67;
+	font-weight: bolder;
+}
