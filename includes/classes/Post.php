@@ -20,7 +20,7 @@ class Post {
 			//get username
 			$added_by = $this->user_obj->getUsername(); //We are calling this function which is in User class thanks to $user_obj being an instance of $User
 			//if user posts on his/her own profile user_to is 'none'
-			if ($user_to==$added_by) {
+			if ($user_to == $added_by) {
 				$user_to = "none";
 			}
 			//insert post
@@ -65,23 +65,21 @@ class Post {
 				$user_to = ""; //we include this in the output whether it was posted in someone else's feed
 			}
 			else {
-				$user_to_obj = new User($this->conn, $row['user_to']); //new user with the 'user_to' as the username
-				$user_to_name = $user_to_obj->getFirstAndLastName(); //we use this method from User Class
-				$user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
+                $user_to_obj = new User($this->conn, $row['user_to']); //new user with the 'user_to' as the username
+                $user_to_name = $user_to_obj->getFirstAndLastName();
+                $user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
 			}
 
 			//check if user who posted, has their account closed
 			$added_by_obj = new User($this->conn, $added_by);
 			if($added_by_obj->isClosed()) {
 					continue;
-				}
+			}
             $user_logged_obj = new User($this->conn, $userLoggedIn);
-
 			if($user_logged_obj->isFriend($added_by)) {
 
 			    if($num_iterations++ < $start)
-                            continue;
-
+                     continue;
 
                 //Once 10 posts have been loaded, break
                 if($count > $limit) {
@@ -188,10 +186,10 @@ class Post {
                                 <a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
                                     </div>
                                     <div id='post_body'>
-                                $body
-                                <br>
-                                <br>
-                                <br>
+                                        $body
+                                        <br>
+                                        <br>
+                                        <br>
                             </div>
                         <div class='newsfeedPostOptions'>
                         Comments($comments_check_num)&nbsp&nbsp&nbsp&nbsp;
@@ -199,9 +197,9 @@ class Post {
                         </div>
                         </div>
                         <div class='post_comment' id='toggleComment$id' style='display:none;'>
-                            <iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
-                        </div>
-                        <hr>";
+							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
+						</div>
+						<hr>";
             }
 		} //End while loop
 
