@@ -312,7 +312,7 @@ textarea:focus {
 	margin-top: 25px;
 }
 
-.deepblue {
+.deep_blue {
 	background-color: #273c75;
 	font-weight: bolder;
 	color: ghostwhite;
@@ -362,4 +362,10 @@ textarea:focus {
 	float: left;
 	width: 70%;
 	z-index: -1;
+}
+
+.profile_info_bottom {
+	margin-top: 90px;
+	font-weight: bolder;
+	margin-left: 12px;
 }

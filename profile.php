@@ -42,7 +42,7 @@ if(isset($_POST['respond_request'])) {
             header("Location:user_closed.php");
         }
         $logged_in_user_obj = new User($conn, $userLoggedIn);
-        if ($userLoggedIn != $username) {
+        if ($userLoggedIn != $username) { //if we are visiting a profile page which is not ours
 
             if($logged_in_user_obj->isFriend($username)) {
                 echo '<input type="submit" name="remove_friend" class="danger" value="Remove Friend"><br>';
@@ -56,10 +56,18 @@ if(isset($_POST['respond_request'])) {
             else
                 echo '<input type="submit" name="add_friend" class="success" value="Add Friend"><br>';
         }
+
                 ?>
 
     </form>
     <input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post Something">
+    <?php
+    if($userLoggedIn != $username) {
+        echo '<div class="profile_info_bottom">';
+        echo $logged_in_user_obj->getMutualFriends($username) . " Mutual friends";
+        echo '</div>';
+    }
+    ?>
 </div>
 
 <div class="profile_main_column column">

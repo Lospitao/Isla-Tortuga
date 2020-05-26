@@ -94,7 +94,7 @@ class User {
 
     public function getMutualFriends ($user_to_check) {
 	    $mutualFriends=0;
-	    $user_array = this->user['friend_array'];
+	    $user_array = $this->user['friend_array'];
 	    $user_array_explode = explode(",", $user_array); //explode splits the string wherever it finds a (delimiter)
 
         $query = mysqli_query($this->conn, "SELECT friend_array FROM users WHERE username='$user_to_check'");
