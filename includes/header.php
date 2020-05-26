@@ -24,7 +24,7 @@ else {
 	</script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="assents/js/isla-tortuga.js">
+    <script src="assets/js/isla-tortuga.js">
     </script>
     <!--CSS-->
     <script src="https://kit.fontawesome.com/5a4a71c487.js" crossorigin="anonymous"></script>

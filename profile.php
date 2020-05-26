@@ -88,8 +88,8 @@ if(isset($_POST['respond_request'])) {
                 <form class="profile_post" action="" method="POST">
                     <div>
                         <textarea class="form-control" name="post_body"></textarea>
-                        <input type="hidden" name="user_from" value="<?php $userLoggedIn; ?>">
-                        <input type="hidden" name="user_to" value="<?php $username; ?>">
+                        <input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
+                        <input type="hidden" name="user_to" value="<?php echo $username; ?>">
                     </div>
 
                 </form>
