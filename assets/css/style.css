@@ -348,3 +348,12 @@ textarea:focus {
 	background-color: #ED4C67;
 	font-weight: bolder;
 }
+.delete_button{
+	height: 22px;
+	width: 22px;
+	padding: 0;
+	float: right;
+	border-radius: 4px;
+	right: -15px;
+	position:relative;
+}
