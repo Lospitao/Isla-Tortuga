@@ -30,6 +30,12 @@ class Message
         else
             return $user_from;
     }
+    public function sendMessage($user_to, $body, $date) {
 
+        if($body != "") {
+            $userLoggedIn = $this->user_obj->getUsername();
+            $query = mysqli_query($this->conn, "INSERT INTO messages VALUES(NULL, '$user_to','$userLoggedIn','$body','$date', 'no', 'no', 'no' )");
+        }
+    }
 }
 ?>
