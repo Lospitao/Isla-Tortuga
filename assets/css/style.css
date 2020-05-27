@@ -369,3 +369,23 @@ textarea:focus {
 	font-weight: bolder;
 	margin-left: 12px;
 }
+
+#message_textarea {
+	width: 80%;
+	margin-right: 8px;
+	border-radius: 5px;
+	border:1px solid #D3D3D3;
+	font-size: 12px;
+}
+#message_submit {
+	height: 41px;
+	width: 120px;
+	margin:0;
+	position: absolute;
+	border: none;
+	background-color: #20AAE5;
+	color: #156588;
+	border-radius: 5px;
+	font-family: 'Bellota-Regular', sans-serif;
+	font-size: 120%;
+}
