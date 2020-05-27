@@ -42,7 +42,7 @@ class Message
         $data = "";
 
         $query= mysqli_query($this->conn, "UPDATE messages SET opened='yes' WHERE user_to='$userLoggedIn' AND user_from='$otherUSer'");
-        $get_messages_query = mysqli_query($this->conn, "SELECT * FROM messages WHERE (user_to='$userLoggedIn' AND user_from='$otherUSer') 
+        $get_messages_query = mysqli_query($this->conn, "SELECT * FROM messages WHERE (user_to='$userLoggedIn' AND user_from='$otherUser') 
         OR (user_from='$userLoggedIn' AND user_to='$otherUser')");
 
         while($row = mysqli_fetch_array($get_messages_query)) {

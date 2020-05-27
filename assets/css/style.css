@@ -389,3 +389,29 @@ textarea:focus {
 	font-family: 'Bellota-Regular', sans-serif;
 	font-size: 120%;
 }
+.message {
+	border: 1px solid #000;
+	border-radius: 5px;
+	padding: 5px 10px;
+	display: inline-block;
+	color: #fff;
+}
+.message#blue {
+	background-color: #20AAE5;
+	border-color: #0b2e13;
+	float:right;
+	margin-bottom: 5px;
+}
+.message#green {
+	background-color: #6ab04c;
+	border-color: #009432;
+	float:left;
+	margin-bottom: 5px;
+}
+.loaded_messages {
+	height: 65%;
+	min-height: 300px;
+	max-width: 1000px;
+	overflow: scroll;
+	margin-bottom: 10px;
+}
