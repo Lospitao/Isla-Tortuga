@@ -24,13 +24,14 @@ if(isset($_FILES['image']['name'])){
     $ImageName = $_FILES['image']['name'];
     $ImageSize = $_FILES['image']['size'];
     $ImageTempName = $_FILES['image']['tmp_name'];
+
+
     //Get File Ext
     $ImageType = @explode('/', $_FILES['image']['type']);
     $type = $ImageType[1]; //file type
     //Set Upload directory
     $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/assets/images/profile_pics';
-    echo "Upload dir: $uploaddir<br>";
-    echo "Upload dir: /var/www/pandora/Isla-Tortuga/assets/images/profile_pics<br>";
+
     //Set File name
     $file_temp_name = $profile_id.'_original.'.md5(time()).'n'.$type; //the temp file name
     $fullpath = $uploaddir."/".$file_temp_name; // the temp file path
@@ -38,6 +39,8 @@ if(isset($_FILES['image']['name'])){
     $fullpath_2 = $uploaddir."/".$file_name; //for the final resized image
     //Move the file to correct location
     $move = move_uploaded_file($ImageTempName ,$fullpath) ;
+
+
     chmod($fullpath, 0777);
     //Check for valid uplaod
     if (!$move) {
