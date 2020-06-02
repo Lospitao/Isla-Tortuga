@@ -91,7 +91,7 @@ nav a:hover {
 	float: right;
 	width: 70%;
 	z-index: -1;
-	min-height: 160px;
+	min-height: 170px;
 }
 .post_form {
 	width:100%;
@@ -432,4 +432,32 @@ textarea:focus {
 }
 #grey {
 	color: #8C8C8C;
+}
+
+.resultDisplay {
+	padding: 5px 5px 0 5px;
+	border-bottom: 1px solid #D3D3D3;
+}
+.resultDisplay a{
+	float:none;
+
+}
+.resultDisplay:hover {
+	background-color: #ebebeb;
+	text-decoration: none;
+}
+.liveSearchProfilePic img{
+	height: 25px;
+	border-radius: 25px;
+	margin: 1px 12px 0 2px;
+	float: left;
+}
+.liveSearchText {
+
+}
+.liveSearchText p{
+	margin-left: 10px;
+	font-size: 12px;
+	background-color: transparent;
+	color: #20AAE5;
 }
