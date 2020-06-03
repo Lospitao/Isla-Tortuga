@@ -37,11 +37,11 @@ function getDropdownData(user, type) {
             pageName = "ajax_load_messages.php";
             $("span").remove("#unread_message");
         }
-
+        //ajax call
         var ajaxreq = $.ajax({
            url: "includes/handlers/" + pageName,
            type: "POST",
-           data: "page=1&user=" + user
+           data: "page=1&userLoggedIn=" + user,
            cache:false,
 
            success: function(response) {
