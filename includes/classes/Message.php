@@ -216,7 +216,8 @@ class Message
             $split = str_split($latest_message_details[1], 12);
             $split = $split[0] . $dots;
 
-            $return_string .= "<a href='message.php?u=$username'> <div class='user_found_messages'>
+            $return_string .= "<a href='message.php?u=$username'> 
+                                <div class='user_found_messages' style ='" . $style . "' >
 								<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
 								" . $user_found_obj->getFirstAndLastName() . "
 								<span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
@@ -224,7 +225,11 @@ class Message
 								</div>
 								</a>";
         }
-
+        //If posts where loaded
+        if($count > limit)
+            $return_string .= "<input type='hidden' class='nextPageDropDownData' value='" . ($page + 1) . "'><input type='hidden' class='noMoreDropDownData' value='false'>";
+        else
+            $return_string .= "<input type='hidden' class='noMoreDropDownData' value='false'> <p style='text-align: center;'>No more messages to load!</p>";
         return $return_string;
     }
 }
