@@ -224,13 +224,14 @@ class Message
 								<p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
 								</div>
 								</a>";
+
         }
-        //If posts where loaded
-        if($count > limit)
-            $return_string .= "<input type='hidden' class='nextPageDropDownData' value='" . ($page + 1) . "'><input type='hidden' class='noMoreDropDownData' value='false'>";
+        //If posts were loaded
+        if($count > $limit)
+            $return_string .= "<input type='hidden' class='nextPageDropdownData' value='" . ($page + 1) . "'><input type='hidden' class='noMoreDropdownData' value='false'>";
         else
-            $return_string .= "<input type='hidden' class='noMoreDropDownData' value='false'> <p style='text-align: center;'>No more messages to load!</p>";
+            $return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'> <p style='text-align: center;'>No more messages to load!</p>";
+
         return $return_string;
     }
 }
-?>
