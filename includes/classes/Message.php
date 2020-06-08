@@ -41,7 +41,7 @@ class Message
         $userLoggedIn = $this->user_obj->getUsername();
         $data = "";
 
-        $query= mysqli_query($this->conn, "UPDATE messages SET opened='yes' WHERE user_to='$userLoggedIn' AND user_from='$otherUSer'");
+        $query= mysqli_query($this->conn, "UPDATE messages SET opened='yes' WHERE user_to='$userLoggedIn' AND user_from='$otherUser'");
         $get_messages_query = mysqli_query($this->conn, "SELECT * FROM messages WHERE (user_to='$userLoggedIn' AND user_from='$otherUser') 
         OR (user_from='$userLoggedIn' AND user_to='$otherUser')");
 
@@ -234,5 +234,10 @@ class Message
             $return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'> <p style='text-align: center;'>No more messages to load!</p>";
 
         return $return_string;
+    }
+    public function getUnreadNumber() {
+        $userLoggedIn = $this->user_obj->getUsername();
+        $query = mysqli_query($this->conn, "SELECT * FROM messages WHERE viewed='no' AND user_to='$userLoggedIn'");
+        return mysqli_num_rows($query);
     }
 }

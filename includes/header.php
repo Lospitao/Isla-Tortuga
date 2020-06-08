@@ -45,6 +45,11 @@ else {
 			<a href="index.php">Tortuga Island</a>
 		</div>
 		<nav>
+            <?php
+            //Unread messages
+            $messages = new Message($conn, $userLoggedIn);
+            $num_messages = $messages->getUnreadNumber();
+            ?>
 			<a href="<?php echo $userLoggedIn; ?>" >
                 <?php echo $user['first_name'];?>
             </a>
@@ -54,6 +59,10 @@ else {
 
 			<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
 				<i class="far fa-envelope fa-lg"></i>
+                <?php
+                if($num_messages > 0)
+                    echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
+                ?>
 			</a>
 
 			<a href="#">
