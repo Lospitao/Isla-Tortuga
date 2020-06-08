@@ -99,7 +99,7 @@ if(isset($_POST['post_message'])) {
 
     <div class="tab-content">
 
-        <div role="tabpanel" class="tab-pane fade in active" id="newsfeed_div">
+        <div role="tabpanel" class="tab-pane active" id="newsfeed_div">
             <div class="posts_area"></div>
             <img id="loading" src="assets/images/icons/loading.gif">
         </div>
