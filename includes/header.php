@@ -50,6 +50,10 @@ else {
             //Unread messages
             $messages = new Message($conn, $userLoggedIn);
             $num_messages = $messages->getUnreadNumber();
+
+            //Unread notifications
+            $notifications = new Notifications($conn, $userLoggedIn);
+            $num_notifications = $notifications->getUnreadNumber();
             ?>
 			<a href="<?php echo $userLoggedIn; ?>" >
                 <?php echo $user['first_name'];?>
@@ -66,8 +70,12 @@ else {
                 ?>
 			</a>
 
-			<a href="#">
+			<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')">
 				<i class="fas fa-bell fa-lg"></i>
+                <?php
+                if($num_notifications > 0)
+                    echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
+                ?>
 			</a>
 
 			<a href="request.php">
