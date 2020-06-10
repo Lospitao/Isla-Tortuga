@@ -128,7 +128,7 @@ Class Notifications {
 								            <img src='" . $user_data['profile_pic'] . "'>
                                         </div>
                                         <p class='timestamp_smaller'id='grey'>" . $time_message . "</p>" .$row['message'] ."
-                                    Notifications Dropdown #116</div> 
+                                    </div> 
 							    </a>";
         }
 
