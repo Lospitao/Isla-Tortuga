@@ -18,7 +18,7 @@ class Post {
             //current date and time
             $date_added = date("Y-m-d H:i:s");
             //get username
-            $added_by = $this->user_obj->getUsername(); //We are calling this function which is in User class thanks to $user_obj being an instance of $User
+            $added_by = $this->user_obj->getUsername();
             //if user posts on his/her own profile user_to is 'none'
             if ($user_to == $added_by) {
                 $user_to = "none";
@@ -29,8 +29,8 @@ class Post {
             $returned_id = mysqli_insert_id($this->conn);
 
             //Insert notification
-            if($user_to != 'none') {
-                $notification = new Notifications($this->conn, $userLoggedIn);
+            if($user_to != 'none')  {
+                $notification = new Notifications($this->conn, $added_by);
                 $notification->insertNotification($returned_id, $user_to, "profile_post");
             }
             //Update post count for user

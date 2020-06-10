@@ -20,6 +20,7 @@
     require_once 'config/config.php';
     include("includes/classes/User.php");
     include("includes/classes/Post.php");
+    include("includes/classes/Notifications.php");
 
     if (isset($_SESSION['username'])) {
         $userLoggedIn=$_SESSION['username']; //this collects the user's name from the email and password entered
@@ -52,8 +53,8 @@
 
         //Insert notification
         if($user_liked != $userLoggedIn) {
-            $notification = new Notifications($this->conn, $userLoggedIn);
-            $notification->insertNotification($post_id, $user_to, "like");
+            $notification = new Notifications($conn, $userLoggedIn);
+            $notification->insertNotification($post_id, $user_liked, "like");
         }
     }
     //Unlike Button
