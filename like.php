@@ -51,6 +51,10 @@
         $insert_user= mysqli_query($conn, "INSERT INTO likes VALUES(NULL, '$userLoggedIn', '$post_id')");
 
         //Insert notification
+        if($user_liked != $userLoggedIn) {
+            $notification = new Notifications($this->conn, $userLoggedIn);
+            $notification->insertNotification($post_id, $user_to, "like");
+        }
     }
     //Unlike Button
     if(isset($_POST['unlike_button'])) {
