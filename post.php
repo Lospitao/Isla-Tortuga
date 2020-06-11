@@ -22,6 +22,7 @@ else {
 			echo "Likes: " . $user['num_likes'];
 			?>
 		</div>
+    </div>
 
         <div class="main_column column" id="main_column">
             <div class="posts_area">
