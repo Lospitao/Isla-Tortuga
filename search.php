@@ -76,11 +76,28 @@ else{
 
                     //Button forms
 
-
-
-                    }
                 }
-            }
+                echo "<div class='search_result'>
+                            <div class='searchPagerFriendButtons'>
+                                <form action='' method='POST'>
+                                    " . $button . "
+                                </form>
+                            </div>
+                            
+                            
+                            <div class='result_profile_pic'>
+                                <a href='" .$row['username'] . "'><img src='" .$row['profile_pic'] . "' style='height: 100px;'></a>
+                            </div>
+                                <a href='" .$row['username'] . "'>" . $row['first_name'] . " " . $row['first_name'] . "
+                                <p id='grey'>" .$row['username'] . "</p>
+                                </a>
+                                <br>
+                                " .$mutual_friends. "<br>
+                      </div>
+                      <hr>";
+
+            }//End of While Loop
+
         }
     ?>
 </div>
