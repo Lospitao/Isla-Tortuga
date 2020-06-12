@@ -72,8 +72,8 @@ function getLiveSearchUsers(value, user) {
            $(".search_results_footer_empty").toggleClass("search_results_footer_empty");
        }
        $('.search_results').html(data);
-       $('search_results_footer').html("<a href='search.php?q=" + value + "'>See all results</a>");
-        if(data ="") {
+       $('.search_results_footer').html("<a href='search.php?q=" + value + "'>See all results</a>");
+        if(data == "") {
             $('.search_results_footer').html("");
             $('.search_results_footer').toggleClass("search_results_footer_empty");
             $('.search_results_footer').toggleClass("search_results_footer");
