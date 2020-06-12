@@ -28,6 +28,23 @@ $(document).ready(function() {
 
 });
 
+$(document).click(function(e){
+
+    if(e.target.class != "search_results" && e.target.id != "search_text_input") {
+
+        $(".search_results").html("");
+        $('.search_results_footer').html("");
+        $('.search_results_footer').toggleClass("search_results_footer_empty");
+        $('.search_results_footer').toggleClass("search_results_footer");
+    }
+    if(e.target.className != "dropdown_data_window") {
+
+        $(".dropdown_data_window").html("");
+        $(".dropdown_data_window").css({"padding" : "0px", "height" : "0px"});
+    }
+});
+
+
 function getUser(value, user) {
     $.post("includes/handlers/ajax_friend_search.php", {query:value, userLoggedIn:user}, function (data) {
        $(".results").html(data);
