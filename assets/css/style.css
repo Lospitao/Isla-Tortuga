@@ -573,5 +573,47 @@ textarea:focus {
 }
 
 #search_hr {
-	margin: 0px;
+	margin: 0;
+}
+
+#small_profile_pics {
+	height: 100px;
+	margin: 1px 12px 0 2px;
+	float:left;
+	border-radius: 10px;
+}
+.settings_input {
+	border: 1px solid #ccc;
+	height: 20px;
+	padding: 4px 6px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	font-size: 14px;
+	line-height: 20px;
+}
+#save_password {
+	width: 30%;
+	background-color: #20AAE5;
+}
+#close_account {
+	width: 30%;
+	background-color: #dc3545;
+}
+#save_details {
+	width: 30%;
+	background-color: #20c997;
+}
+#account_settings {
+	font-family: 'Bellota-Regular', sans-serif;
+}
+#close_account_form {
+	font-family: 'Bellota-Regular', sans-serif;
+}
+#final_close_account {
+	width: 30%;
+	background-color: #20AAE5;
+}
+#cancel_close_account {
+	width: 30%;
+	background-color: #dc3545;
 }
