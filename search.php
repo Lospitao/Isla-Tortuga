@@ -15,6 +15,7 @@ else{
     $type = "name";
 }
 ?>
+
 <div class="main_column column" id="main_column">
     <?php
         if($query == "")
@@ -50,7 +51,7 @@ else{
                 echo mysqli_num_rows($usersReturnedQuery) . " results found: <br> <br>";
 
             echo "<p id='grey'>Try searching for:</p>";
-            echo"<a href='search.php?q=" . $query . "&type=name'>Names</a>, <a href='search.php?q=" . $query . "&type=username'>Usernames</a><br><br><hr>";
+            echo"<a href='search.php?q=" . $query . "&type=name'>Names</a>, <a href='search.php?q=" . $query . "&type=username'>Usernames</a><br><br><hr id='search_hr'>";
 
             while($row = mysqli_fetch_array($usersReturnedQuery)) {
                 $user_obj = new User($conn, $user['username']);
@@ -72,29 +73,32 @@ else{
                     else
                         $button ="<input type='submit' name='" . $row['username'] . "' class='success' value='Add Friend'>";
 
-                    $mutual_friends = $user_obj->getMutualFriends($row['username']) . "friends in common";
+                    $mutual_friends = $user_obj->getMutualFriends($row['username']) . " friends in common";
 
                     //Button forms
 
                 }
                 echo "<div class='search_result'>
-                            <div class='searchPagerFriendButtons'>
-                                <form action='' method='POST'>
-                                    " . $button . "
-                                </form>
-                            </div>
-                            
-                            
-                            <div class='result_profile_pic'>
-                                <a href='" .$row['username'] . "'><img src='" .$row['profile_pic'] . "' style='height: 100px;'></a>
-                            </div>
-                                <a href='" .$row['username'] . "'>" . $row['first_name'] . " " . $row['first_name'] . "
-                                <p id='grey'>" .$row['username'] . "</p>
-                                </a>
-                                <br>
-                                " .$mutual_friends. "<br>
-                      </div>
-                      <hr>";
+					<div class='searchPageFriendButtons'>
+						<form action='' method='POST'>
+							" . $button . "
+							<br>
+						</form>
+					</div>
+
+
+					<div class='result_profile_pic'>
+						<a href='" . $row['username'] ."'><img src='". $row['profile_pic'] ."' style='height: 100px;'></a>
+					</div>
+
+						<a href='" . $row['username'] ."'> " . $row['first_name'] . " " . $row['last_name'] . "
+						<p id='grey'> " . $row['username'] ."</p>
+						</a>
+						<br>
+						" . $mutual_friends ."<br>
+
+				</div>
+				<hr id='search_hr'>";
 
             }//End of While Loop
 
