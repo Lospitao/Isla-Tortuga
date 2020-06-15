@@ -76,6 +76,25 @@ else{
                     $mutual_friends = $user_obj->getMutualFriends($row['username']) . " friends in common";
 
                     //Button forms
+                    if(isset($_POST[$row['username']])) {
+                        //if that person is my friend, remove it
+                        if($user_obj->isFriend($row['username'])) {
+                            $user_obj->removeFriend($row['username']);
+                            header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                        }
+                        //If I have received a request, take me to request page to answer the request
+                        else if($user_obj->didReceiveRequest($row['username'])) {
+                            header("Location: request.php");
+                        }
+                        else if($user_obj->didSendRequest($row['username'])) {
+                                //If request has been sent we don't really need to do anything but wait
+                        }
+                        //Otherwise, add friend
+                        else {
+                            $user_obj->sendRequest($row['username']);
+                            header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                        }
+                    }
 
                 }
                 echo "<div class='search_result'>
