@@ -4,7 +4,7 @@ if(isset($_POST['update_details'])) {
     $last_name= $_POST['last_name'];
     $email= $_POST['email'];
 
-    $email_check = mysqli_query(($conn, "SELECT * FROM users WHERE email='$email'"));
+    $email_check = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
     $row = mysqli_fetch_array($email_check);
     $matched_user = $row['username'];
 
@@ -17,6 +17,7 @@ if(isset($_POST['update_details'])) {
         $message = "That email is already in use!<br><br>";
 }
 else
+    $message = "";
 
 if(isset($_POST['update_password']) ) {
     if($POST['new_password'] == $POST['new_password_2']) {
