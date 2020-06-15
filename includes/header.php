@@ -113,7 +113,7 @@ else {
                 ?>
             </a>
 
-			<a href="#">
+			<a href="settings.php">
 				<i class="fas fa-cog fa-lg"></i>
 			</a>
 			<a href="includes/handlers/logout.php">
