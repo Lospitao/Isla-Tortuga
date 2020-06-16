@@ -88,7 +88,7 @@ class Post {
             wherein where's whereupon wherever whether which while whither who whoever whole whom who's whose why why's 
             will willing wish with within without wonder won't would wouldn't yes yet you you'd you'll your you're yours 
             yourself yourselves you've zero un una unas unos uno sobre todo también tras otro algún alguno alguna algunos 
-            algunas ser es soy eres somos sois estoy esta estamos estais estan como en para atras porque por qué estado 
+            algunas de ser es soy eres somos sois estoy esta estamos estais estan como en para atras porque por qué estado 
             estaba ante antes siendo ambos pero por poder puede puedo podemos podeis pueden fui fue fuimos fueron hacer 
             hago hace hacemos haceis hacen cada fin incluso primero desde conseguir consigo consigue consigues conseguimos 
             consiguen ir voy va vamos vais van vaya gueno ha tener tengo tiene tenemos teneis tienen el la lo las los su 
@@ -102,7 +102,7 @@ class Post {
 
             $stopWords = preg_split("/[\s,]+/", $stopWords);
 
-            $no_punctuation = preg_replace("/[^a-zA-Z 0-9]+/", "", $body);
+            $no_punctuation = preg_replace("/[^a-zA-Z 0-9-áÁéÉíÍóÓúÚ-ñ]+/", "", $body);
 
             //Checking if Post is not a link
             if(strpos($no_punctuation, "height") === false && strpos($no_punctuation, "width") === false
