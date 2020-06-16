@@ -99,15 +99,39 @@ class Post {
              eran modo bien cual cuando donde mientras quien con entre sin trabajo trabajar  trabajas trabaja trabajamos 
              trabajais trabajan podria podrias podriamos podrian podriais yo aquel";
 
+
             $stopWords = preg_split("/[\s,]+/", $stopWords);
 
-            $no_punctuation = preg_replace("\[^a-zA-Z 0-9]+/", "", $body);
+            $no_punctuation = preg_replace("/[^a-zA-Z 0-9]+/", "", $body);
 
             //Checking if Post is not a link
             if(strpos($no_punctuation, "height") === false && strpos($no_punctuation, "width") === false
-                && strpos($no_punctuation, "http") === false) {
-                    $no_punctuation = preg_split("/[\s,]+/", $no_punctuation);
+                && strpos($no_punctuation, "http") === false && strpos($no_punctuation, "youtube") === false) {
+                    $keywords = preg_split("/[\s,]+/", $no_punctuation);
+
+
+                foreach($stopWords as $value) {
+                        foreach($keywords as $key => $value2){
+
+                            if(strtolower($value) == strtolower($value2))
+                                $keywords[$key] = "";
+                                }
+                            }
+                foreach ($keywords as $value) {
+                    $this->calculateTrend(ucfirst($value));
+                    }
+                    }
             }
+        }
+
+    public function calculateTrend($term) {
+        if($term != '') {
+            $query = mysqli_query($this->conn, "SELECT * FROM trends WHERE title='$term'");
+
+            if(mysqli_num_rows($query) == 0)
+                $insert_query = mysqli_query($this->conn, "INSERT INTO trends(title,hits) VALUES('$term','1')");
+            else
+                $insert_query = mysqli_query($this->conn, "UPDATE trends SET hits=hits+1 WHERE title='$term'");
         }
     }
     public function loadPostsFriends($data, $limit) {
